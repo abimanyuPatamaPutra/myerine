@@ -15,7 +15,353 @@
       font-family: 'Poppins', sans-serif;
       background: url("Dreamy Wedding Arch Backdrops.jpg") no-repeat center center fixed;
       background-size: cover;
+      overflow-x: hidden;<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untuk Erine</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Comic+Neue:wght@700&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: url("Dreamy Wedding Arch Backdrops.jpg") no-repeat center center fixed;
+      background-size: cover;
       overflow-x: hidden;
+      transition: background-color 0.5s, color 0.5s;
+    }
+    body.night {
+      background-color: #1e1e1e;
+      color: #fff;
+    }
+    header {
+      background-color: rgba(255, 182, 193, 0.9);
+      padding: 20px;
+      text-align: center;
+      color: white;
+      font-family: 'Dancing Script', cursive;
+      font-size: 3em;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      animation: fadeInScale 2s ease-in-out forwards;
+    }
+    @keyframes fadeInScale {
+      0% { opacity: 0; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    .intro, .gallery, .heart-zone, #popup, #final-message {
+      transition: background-color 0.5s, color 0.5s;
+    }
+    .night .intro,
+    .night .gallery,
+    .night .heart-zone,
+    .night #popup,
+    .night #final-message {
+      background-color: rgba(30, 30, 30, 0.8);
+      color: #fff;
+    }
+    .night header {
+      background-color: #333;
+    }
+    .intro {
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 1.3em;
+      color: #333;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+      margin: 20px;
+      animation: fadeInScale 2s ease-in-out forwards;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 20px;
+      margin: 20px;
+      animation: fadeInScale 2s ease-in-out forwards;
+    }
+    .gallery img {
+      width: 220px;
+      height: auto;
+      border-radius: 20px;
+      border: 5px solid #fff0f5;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    .heart-zone {
+      text-align: center;
+      margin-top: 30px;
+      animation: fadeInScale 2s ease-in-out forwards;
+    }
+    .heart-zone button {
+      background-color: #ff69b4;
+      border: none;
+      color: white;
+      padding: 15px 30px;
+      margin: 10px;
+      border-radius: 25px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: background 0.3s;
+      font-family: 'Comic Neue', cursive;
+    }
+    .heart-zone button:hover {
+      background-color: #ff1493;
+    }
+    #popup {
+      display: none;
+      text-align: center;
+      font-size: 1.5em;
+      color: #d63384;
+      margin-top: 20px;
+      font-family: 'Comic Neue', cursive;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 15px;
+      border-radius: 15px;
+      margin: 20px;
+    }
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 1em;
+      color: #999;
+    }
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+    .petals {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .petal {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: url('https://cdn-icons-png.flaticon.com/512/415/415733.png') no-repeat center center;
+      background-size: contain;
+      opacity: 0.8;
+      animation: fall 5s linear infinite;
+    }
+    @keyframes fall {
+      0% {transform: translateY(0) rotate(0deg);}
+      100% {transform: translateY(100vh) rotate(360deg);}
+    }
+    #final-message {
+      display: none;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.95);
+      margin: 30px;
+      border-radius: 20px;
+      font-size: 1.2em;
+      color: #333;
+      font-family: 'Comic Neue', cursive;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+  <header>Hai Erine 💖</header>
+  <div class="intro">
+    <p>Setiap senyum kamu bikin hari aku cerah! 🌸<br>Dan aku cuma pengen bilang satu hal... aku sayang kamu 🥺💗</p>
+  </div>
+
+  <div class="gallery" id="gallery">
+    <img src="erine1.3.jpg" alt="Erine 1">
+    <img src="erine1.4.jpg" alt="Erine 2">
+    <img src="erine 1.2.jpg" alt="Erine 3">
+    <img src="erine .10.jpg" alt="Erine 4">
+  </div>
+
+  <div class="heart-zone">
+    <button id="yes">Aku Mau 💍</button>
+    <button id="no">Ga Dulu 😜</button>
+    <button onclick="toggleAudio()">🔊 Matikan/Menyalakan Audio</button>
+    <button onclick="toggleNightMode()">🌙 Mode Malam</button>
+  </div>
+
+  <div id="popup">Makasih ya udah mau terima aku sayang ❤️❤️</div>
+
+  <div id="final-message">
+Hari ini mungkin biasa aja buat orang lain, tapi buat aku… hari ini luar biasa. Karena kamu—seseorang yang selama ini cuma bisa aku kagumi diam-diam, yang selalu berhasil bikin aku senyum tanpa sadar—sekarang udah jadi bagian nyata dari hidupku.
+
+Terima kasih karena udah percaya sama aku. Aku tahu, jadi pacar kamu bukan hal kecil. Itu artinya kamu siap berbagi cerita, tawa, bahkan mungkin air mata suatu saat nanti. Dan aku siap untuk jadi tempat kamu bersandar, jadi orang yang kamu cari pertama kali saat kamu butuh, dan jadi alasan kamu tersenyum setiap hari.
+
+Aku nggak janji kita bakal selalu mulus. Tapi aku janji akan selalu mau berusaha—buat ngerti kamu, buat dengerin kamu, buat jagain hubungan ini supaya tetap hangat.
+
+Semoga hubungan ini bukan cuma tentang status, tapi tentang perjalanan. Dan aku senang banget bisa mulai perjalanan itu bareng kamu.
+  </div>
+
+  <footer>Made with 💖 by Secret Admirer</footer>
+
+  <audio id="bgm" loop>
+    <source src="Beautiful In White (Saxophone Cover by Dori Wirawan) - dori wirawan.mp3" type="audio/mpeg">
+  </audio>
+
+  <canvas id="heartCanvas"></canvas>
+  <div class="petals" id="petals"></div>
+  <canvas id="confettiCanvas"></canvas>
+
+  <script>
+    const audio = document.getElementById('bgm');
+    const noBtn = document.getElementById('no');
+    const yesBtn = document.getElementById('yes');
+    const popup = document.getElementById('popup');
+    const gallery = document.getElementById('gallery');
+    const finalMessage = document.getElementById('final-message');
+
+    function toggleNightMode() {
+      document.body.classList.toggle('night');
+    }
+
+    audio.volume = 0.5;
+
+    function tryPlayAudio() {
+      audio.currentTime = 14;
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          document.body.addEventListener('click', () => {
+            audio.play();
+          }, { once: true });
+        });
+      }
+    }
+    window.addEventListener('load', tryPlayAudio);
+
+    function toggleAudio() {
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    }
+
+    noBtn.addEventListener('mouseover', () => {
+      const x = Math.floor(Math.random() * (window.innerWidth - 100));
+      const y = Math.floor(Math.random() * (window.innerHeight - 50));
+      noBtn.style.position = 'absolute';
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    });
+
+    yesBtn.addEventListener('click', () => {
+      popup.style.display = 'block';
+      gallery.style.display = 'none';
+      finalMessage.style.display = 'block';
+      launchConfetti();
+    });
+
+    const canvas = document.getElementById('heartCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const hearts = [];
+    document.addEventListener('mousemove', (e) => {
+      hearts.push({ x: e.clientX, y: e.clientY, size: Math.random() * 10 + 10, opacity: 1 });
+    });
+
+    function drawHearts() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < hearts.length; i++) {
+        const h = hearts[i];
+        ctx.fillStyle = `rgba(255, 105, 180, ${h.opacity})`;
+        ctx.beginPath();
+        ctx.moveTo(h.x, h.y);
+        ctx.bezierCurveTo(h.x + h.size/2, h.y - h.size, h.x + h.size*1.5, h.y + h.size/3, h.x, h.y + h.size);
+        ctx.bezierCurveTo(h.x - h.size*1.5, h.y + h.size/3, h.x - h.size/2, h.y - h.size, h.x, h.y);
+        ctx.fill();
+        h.y -= 1;
+        h.opacity -= 0.01;
+      }
+      for (let i = hearts.length - 1; i >= 0; i--) {
+        if (hearts[i].opacity <= 0) hearts.splice(i, 1);
+      }
+      requestAnimationFrame(drawHearts);
+    }
+    drawHearts();
+
+    function createPetal() {
+      const petal = document.createElement('div');
+      petal.classList.add('petal');
+      petal.style.left = Math.random() * 100 + 'vw';
+      petal.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      document.getElementById('petals').appendChild(petal);
+      setTimeout(() => {
+        petal.remove();
+      }, 5000);
+    }
+    setInterval(createPetal, 300);
+
+    function launchConfetti() {
+      const confettiCanvas = document.getElementById('confettiCanvas');
+      const confettiCtx = confettiCanvas.getContext('2d');
+      confettiCanvas.width = window.innerWidth;
+      confettiCanvas.height = window.innerHeight;
+      const confettis = [];
+
+      for (let i = 0; i < 150; i++) {
+        confettis.push({
+          x: Math.random() * confettiCanvas.width,
+          y: Math.random() * confettiCanvas.height - confettiCanvas.height,
+          r: Math.random() * 6 + 4,
+          d: Math.random() * 30 + 10,
+          color: `hsl(${Math.random() * 360}, 100%, 70%)`
+        });
+      }
+
+      function drawConfetti() {
+        confettiCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+        confettis.forEach(c => {
+          confettiCtx.beginPath();
+          confettiCtx.arc(c.x, c.y, c.r, 0, Math.PI * 2);
+          confettiCtx.fillStyle = c.color;
+          confettiCtx.fill();
+        });
+        updateConfetti();
+      }
+
+      function updateConfetti() {
+        confettis.forEach(c => {
+          c.y += Math.cos(c.d / 10) + 1 + c.r / 2;
+          c.x += Math.sin(c.d / 10);
+          if (c.y > confettiCanvas.height) {
+            c.y = -10;
+            c.x = Math.random() * confettiCanvas.width;
+          }
+        });
+      }
+
+      function animateConfetti() {
+        drawConfetti();
+        requestAnimationFrame(animateConfetti);
+      }
+
+      animateConfetti();
+    }
+  </script>
+</body>
+</html>
+
     }
     header {
       background-color: rgba(255, 182, 193, 0.9);
